@@ -10,14 +10,17 @@ var SolarBurn = (function(canvasId, opts){
 	opts.psizemin = opts.minParticleSize || 1;
 	opts.pspawn = opts.particlesSpawned || 100;
 	opts.srad = opts.sphereRadius || 150;
+	opts.parent = opts.parent || "body";
 	
 	var opspeed = opts.pspeed;
 	var opspeedmin = opts.pspeedmin;
 	var osrad = opts.srad;
 	
 	var canvas = document.getElementById(canvasId);
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+	
+	var parent = $(canvas).parents().find(opts.parent);
+	canvas.width = $(parent).width();
+	canvas.height = $(parent).height();
 	var context = canvas.getContext("2d");
 	
 	var gradient = context.createRadialGradient(0,0,0.1,0,0,opts.psize);
