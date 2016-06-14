@@ -35,6 +35,9 @@ var SolarBurn = (function(canvasId, opts){
 		opts.psize = options.particleSize || opts.psize;
 		opts.psizemin = options.minParticleSize || opts.psizemin;
 		opts.pspawn = options.particlesSpawned || opts.pspawn;
+		if(opts.pspawn > 500){
+			opts.pspawn = 500;
+		}
 		opts.srad = options.sphereRadius || srad;
 	}
 
