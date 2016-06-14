@@ -23,6 +23,17 @@ var SolarBurn = (function(canvasId, opts){
 	var gradient = context.createRadialGradient(0,0,0.1,0,0,opts.psize);
 	gradient.addColorStop(0, "rgba(255,255,255,0.25)");
 	gradient.addColorStop(1, "rgba(255,255,255,0)");
+	
+	sp.setOptions = function(options){
+		opts.pspeed = options.pspeed || opts.pspeed;
+		opts.pspeedmin = options.pspeedmin || opts.pspeedmin;
+		opts.plife = options.plife || opts.plife;
+		opts.plifemin = options.plifemin || opts.plifemin;
+		opts.psize = options.psize || opts.psize;
+		opts.psizemin = options.psizemin || opts.psizemin;
+		opts.pspawn = options.pspawn || opts.pspawn;
+		opts.srad = options.srad || srad;
+	}
 
 	var Particle = (function(x, y, rad){
 		var p = {};
