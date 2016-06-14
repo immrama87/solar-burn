@@ -2,14 +2,14 @@ var SolarBurn = (function(canvasId, opts){
 	var sb = {};
 	
 	opts = opts || {};
-	opts.pspeed = opts.pspeed || 3;
-	opts.pspeedmin = opts.pspeedmin || 0.4;
-	opts.plife = opts.plife || 50;
-	opts.plifemin = opts.plifemin || 5;
-	opts.psize = opts.psize || 3;
-	opts.psizemin = opts.psizemin || 1;
-	opts.pspawn = opts.pspawn || 100;
-	opts.srad = opts.srad || 150;
+	opts.particleSpeed = opts.particleSpeed || 3;
+	opts.pspeedmin = opts.minParticleSpeed || 0.4;
+	opts.plife = opts.particleLife || 50;
+	opts.plifemin = opts.minParticleLife || 5;
+	opts.psize = opts.particleSize || 3;
+	opts.psizemin = opts.minParticleSize || 1;
+	opts.pspawn = opts.particlesSpawned || 100;
+	opts.srad = opts.sphereRadius || 150;
 	
 	var opspeed = opts.pspeed;
 	var opspeedmin = opts.pspeedmin;
@@ -24,15 +24,15 @@ var SolarBurn = (function(canvasId, opts){
 	gradient.addColorStop(0, "rgba(255,255,255,0.25)");
 	gradient.addColorStop(1, "rgba(255,255,255,0)");
 	
-	sp.setOptions = function(options){
-		opts.pspeed = options.pspeed || opts.pspeed;
-		opts.pspeedmin = options.pspeedmin || opts.pspeedmin;
-		opts.plife = options.plife || opts.plife;
-		opts.plifemin = options.plifemin || opts.plifemin;
-		opts.psize = options.psize || opts.psize;
-		opts.psizemin = options.psizemin || opts.psizemin;
-		opts.pspawn = options.pspawn || opts.pspawn;
-		opts.srad = options.srad || srad;
+	sb.setOptions = function(options){
+		opts.pspeed = options.particleSpeed || opts.pspeed;
+		opts.pspeedmin = options.minParticleSpeed || opts.pspeedmin;
+		opts.plife = options.particleLife || opts.plife;
+		opts.plifemin = options.minParticleLife || opts.plifemin;
+		opts.psize = options.particleSize || opts.psize;
+		opts.psizemin = options.minParticleSize || opts.psizemin;
+		opts.pspawn = options.particlesSpawned || opts.pspawn;
+		opts.srad = options.sphereRadius || srad;
 	}
 
 	var Particle = (function(x, y, rad){
