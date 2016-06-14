@@ -30,10 +30,19 @@ var SolarBurn = (function(canvasId, opts){
 	sb.setOptions = function(options){
 		opts.pspeed = options.particleSpeed || opts.pspeed;
 		opts.pspeedmin = options.minParticleSpeed || opts.pspeedmin;
+		if(opts.pspeed < opts.pspeedmin){
+			opts.pspeed = opts.pspeedmin;
+		}
 		opts.plife = options.particleLife || opts.plife;
 		opts.plifemin = options.minParticleLife || opts.plifemin;
+		if(opts.plife < opts.plifemin){
+			opts.plife = opts.plifemin;
+		}
 		opts.psize = options.particleSize || opts.psize;
 		opts.psizemin = options.minParticleSize || opts.psizemin;
+		if(opts.psize < opts.psizemin){
+			opts.psize = opts.psizemin;
+		}
 		opts.pspawn = options.particlesSpawned || opts.pspawn;
 		if(opts.pspawn > 500){
 			opts.pspawn = 500;
